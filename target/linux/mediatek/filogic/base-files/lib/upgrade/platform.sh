@@ -104,6 +104,7 @@ platform_do_upgrade() {
 	yuncore,ax835)
 		default_do_upgrade "$1"
 		;;
+  cmcc,rax3000m-emmc-ubootmod|\
 	glinet,gl-mt2500|\
 	glinet,gl-mt6000|\
 	glinet,gl-x3000|\
@@ -199,6 +200,7 @@ platform_check_image() {
 platform_copy_config() {
 	case "$(board_name)" in
 	acer,predator-w6|\
+	cmcc,rax3000m-emmc-ubootmod|\
 	glinet,gl-mt2500|\
 	glinet,gl-mt6000|\
 	glinet,gl-x3000|\

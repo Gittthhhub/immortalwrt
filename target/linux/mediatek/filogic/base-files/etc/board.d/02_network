@@ -13,6 +13,8 @@ mediatek_setup_interfaces()
 		;;
 	abt,asr3000|\
 	cmcc,rax3000m|\
+	cmcc,rax3000m-emmc-ubootmod|\
+	cmcc,rax3000m-nand-ubootmod|\
 	h3c,magic-nx30-pro|\
 	h3c,magic-nx30-pro-nmbm|\
 	imou,lc-hx3001-ubootmod|\
@@ -139,6 +141,11 @@ mediatek_setup_macs()
 	bananapi,bpi-r3-mini|\
 	bananapi,bpi-r4)
 		wan_mac=$(macaddr_add $(cat /sys/class/net/eth0/address) 1)
+		;;
+	cmcc,rax3000m-emmc-ubootmod)
+		wan_mac=$(mmc_get_mac_binary factory 0x2a)
+		lan_mac=$(mmc_get_mac_binary factory 0x24)
+		label_mac=$wan_mac
 		;;
 	h3c,magic-nx30-pro|\
 	h3c,magic-nx30-pro-nmbm)

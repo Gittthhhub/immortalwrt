@@ -6,6 +6,11 @@
 / {
 	compatible = "cmcc,rax3000m", "mediatek,mt7981";
 
+    chosen: chosen {
+		bootargs-override = "root=/dev/fit0 rootwait";
+		stdout-path = "serial0:115200n8";
+	};
+
 	fragment@0 {
 		target = <&chosen>;
 		__overlay__ {
